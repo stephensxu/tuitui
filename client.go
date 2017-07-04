@@ -9,6 +9,18 @@ import (
 	"encoding/json"
 )
 
+
+func NewAuthenticatedClient() (*TuituiClient, error) {
+	client := NewTuituiClient()
+	authenticated := client.Authenticate()
+
+	if authenticated {
+		return client, nil
+	}
+
+	return nil, fmt.Errorf("Could not load authenticated client")
+}
+
 func Login(client *TuituiClient) (bool, error) {
 	fields := map[string]string{}
 
@@ -32,7 +44,11 @@ func Login(client *TuituiClient) (bool, error) {
 
 	authenticated := client.Authenticate()
 
-	return authenticated, nil
+	if authenticated {
+		return true, nil
+	}
+
+	return false, fmt.Errorf("Could not login")
 }
 
 func Load() (map[string]string, error) {
