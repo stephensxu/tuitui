@@ -8,6 +8,11 @@ import (
 	"github.com/stephensxu/tuitui"
 )
 
+const (
+	donaldTrump = "realDonaldTrump"
+	elonMusk    = "elonmusk"
+)
+
 func main() {
 	app := cli.NewApp()
 	app.Commands = []cli.Command{
@@ -35,7 +40,31 @@ func main() {
 			Action: func(c *cli.Context) error {
 				client, err := tuitui.NewAuthenticatedClient()
 
-				tweet, err := client.GetTimeline("elonmusk")
+				if err != nil {
+					fmt.Println(err)	
+				}
+
+				tweet, err := client.GetTimeline(elonMusk)
+				
+				if err != nil {
+					fmt.Println(err)	
+				}
+
+				color.Green(tweet)
+				return nil
+			},
+		},
+		{
+			Name: "gettrump",
+			Usage: "Get latest timeline of Donald Trump",
+			Action: func(c *cli.Context) error {
+				client, err := tuitui.NewAuthenticatedClient()
+				
+				if err != nil {
+					fmt.Println(err)	
+				}
+
+				tweet, err := client.GetTimeline(donaldTrump)
 				
 				if err != nil {
 					fmt.Println(err)	
