@@ -30,8 +30,8 @@ func main() {
 			},
 		},
 		{
-			Name: "gett",
-			Usage: "Get timeline of a user",
+			Name: "getelon",
+			Usage: "Get latest timeline of Elon Musk",
 			Action: func(c *cli.Context) error {
 				client, err := tuitui.NewAuthenticatedClient()
 
