@@ -35,7 +35,7 @@ func main() {
 			},
 		},
 		{
-			Name: "getelon",
+			Name: "elon",
 			Usage: "Get latest timeline of Elon Musk",
 			Action: func(c *cli.Context) error {
 				client, err := tuitui.NewAuthenticatedClient()
@@ -55,7 +55,7 @@ func main() {
 			},
 		},
 		{
-			Name: "gettrump",
+			Name: "trump",
 			Usage: "Get latest timeline of Donald Trump",
 			Action: func(c *cli.Context) error {
 				client, err := tuitui.NewAuthenticatedClient()
