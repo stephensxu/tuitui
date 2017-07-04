@@ -23,7 +23,7 @@ func (t *TuituiClient) GetTimeline(screenName string) (string, error) {
 	tweets, _, err := t.client.Timelines.UserTimeline(timeLineParams)
 
 	if err != nil {
-		return "", err	
+		return "", err
 	}
 
 	fmt.Println(len(tweets), "tweets pulled")
