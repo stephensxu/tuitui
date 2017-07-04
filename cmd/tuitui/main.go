@@ -15,7 +15,9 @@ func main() {
 			Name:  "login",
 			Usage: "Login to your twitter account",
 			Action: func(c *cli.Context) error {
-				_, err := tuitui.Login()
+
+				client := tuitui.NewTuituiClient()
+				_, err := tuitui.Login(client)
 
 				if err != nil {
 					fmt.Println(err)	

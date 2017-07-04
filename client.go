@@ -7,12 +7,9 @@ import (
 	"io/ioutil"
 	"github.com/segmentio/go-prompt"
 	"encoding/json"
-	// "github.com/dghubble/go-twitter/twitter"
-    	// "github.com/dghubble/oauth1"
 )
 
-func Login() (bool, error) {
-
+func Login(client *TuituiClient) (bool, error) {
 	fields := map[string]string{}
 
 	for k, v := range GetAuthFields() {
@@ -33,7 +30,9 @@ func Login() (bool, error) {
 		return false, err
 	}
 
-	return true, nil
+	authenticated := client.Authenticate()
+
+	return authenticated, nil
 }
 
 func Load() (map[string]string, error) {
