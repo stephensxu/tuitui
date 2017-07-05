@@ -26,7 +26,6 @@ func main() {
 
 				if err != nil {
 					color.Red(err.Error())
-					return err
 				}
 
 				color.Green("Logged in!")
@@ -46,7 +45,7 @@ func main() {
 				tweets, err := client.GetRecentTweets(elonMusk)
 				
 				if err != nil {
-					fmt.Println(err)
+					color.Red(err.Error())
 				}
 
 				for i, tweet := range tweets {
@@ -65,13 +64,13 @@ func main() {
 				client, err := tuitui.NewAuthenticatedClient()
 				
 				if err != nil {
-					fmt.Println(err)
+					color.Red(err.Error())
 				}
 				
 				tweets, err := client.GetRecentTweets(donaldTrump)
 				
 				if err != nil {
-					fmt.Println(err)
+					color.Red(err.Error())
 				}
 
 				for i, tweet := range tweets {
