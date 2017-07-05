@@ -41,13 +41,13 @@ func main() {
 				client, err := tuitui.NewAuthenticatedClient()
 
 				if err != nil {
-					fmt.Println(err)	
+					fmt.Println(err)
 				}
 
 				tweet, err := client.GetTimeline(elonMusk)
 				
 				if err != nil {
-					fmt.Println(err)	
+					fmt.Println(err)
 				}
 
 				color.Green(tweet)
@@ -61,14 +61,15 @@ func main() {
 				client, err := tuitui.NewAuthenticatedClient()
 				
 				if err != nil {
-					fmt.Println(err)	
+					fmt.Println(err)
 				}
 
 				tweet, err := client.GetTimeline(donaldTrump)
 				
 				if err != nil {
-					fmt.Println(err)	
+					fmt.Println(err)
 				}
+				
 
 				color.Green(tweet)
 				return nil
