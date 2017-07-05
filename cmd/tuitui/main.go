@@ -9,8 +9,9 @@ import (
 )
 
 const (
-	donaldTrump = "realDonaldTrump"
-	elonMusk    = "elonmusk"
+	donaldTrump   = "realDonaldTrump"
+	elonMusk      = "elonmusk"
+	maxTweetCount = 10
 )
 
 func main() {
@@ -20,11 +21,9 @@ func main() {
 			Name:  "login",
 			Usage: "Login to your twitter account",
 			Action: func(c *cli.Context) error {
-				fmt.Println("trying to login")
-
 				client := tuitui.NewTuituiClient()
 				_, err := tuitui.Login(client)
-				
+
 				if err != nil {
 					color.Red(err.Error())
 					return err
@@ -36,7 +35,7 @@ func main() {
 		},
 		{
 			Name: "elon",
-			Usage: "Get latest timeline of Elon Musk",
+			Usage: "Get latest 10 tweets of Elon Musk",
 			Action: func(c *cli.Context) error {
 				client, err := tuitui.NewAuthenticatedClient()
 
@@ -44,34 +43,43 @@ func main() {
 					fmt.Println(err)
 				}
 
-				tweet, err := client.GetTimeline(elonMusk)
+				tweets, err := client.GetRecentTweets(elonMusk)
 				
 				if err != nil {
 					fmt.Println(err)
 				}
 
-				color.Green(tweet)
+				for i, tweet := range tweets {
+					if i < maxTweetCount {
+						color.Green(tweet.Text)
+						fmt.Println("\n")
+					}
+				}
 				return nil
 			},
 		},
 		{
 			Name: "trump",
-			Usage: "Get latest timeline of Donald Trump",
+			Usage: "Get latest 10 tweets of Donald Trump",
 			Action: func(c *cli.Context) error {
 				client, err := tuitui.NewAuthenticatedClient()
 				
 				if err != nil {
 					fmt.Println(err)
 				}
-
-				tweet, err := client.GetTimeline(donaldTrump)
+				
+				tweets, err := client.GetRecentTweets(donaldTrump)
 				
 				if err != nil {
 					fmt.Println(err)
 				}
-				
 
-				color.Green(tweet)
+				for i, tweet := range tweets {
+					if i < maxTweetCount {
+						color.Green(tweet.Text)
+						fmt.Println("\n")
+					}
+				}
 				return nil
 			},
 		},

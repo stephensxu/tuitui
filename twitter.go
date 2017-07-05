@@ -15,7 +15,7 @@ func NewTuituiClient() *TuituiClient {
 	return &TuituiClient{}
 }
 
-func (t *TuituiClient) GetTimeline(screenName string) (string, error) {
+func (t *TuituiClient) GetRecentTweets(screenName string) ([]twitter.Tweet, error) {
 	timeLineParams := &twitter.UserTimelineParams{
 		ScreenName: screenName,
 	}
@@ -23,12 +23,10 @@ func (t *TuituiClient) GetTimeline(screenName string) (string, error) {
 	tweets, _, err := t.client.Timelines.UserTimeline(timeLineParams)
 
 	if err != nil {
-		return "", err
+		return []twitter.Tweet{}, err
 	}
 
-	fmt.Println(len(tweets), "tweets pulled")
-
-	return tweets[0].Text, nil
+	return tweets, nil
 }
 
 // Authenticate : Authenticates using the fields passed in
