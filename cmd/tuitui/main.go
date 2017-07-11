@@ -16,6 +16,7 @@ const (
 
 func main() {
 	app := cli.NewApp()
+	app.Version = "1.1.1"
 	app.Commands = []cli.Command{
 		{
 			Name:  "login",
