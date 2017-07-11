@@ -1,2 +1,2 @@
 # tuitui
-command line interface with twitter
+Show the latest tweets from Elon Musk and Donald Trump!
