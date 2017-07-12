@@ -28,10 +28,14 @@ You will need a Twitter App in order to obtain credentials from twitter. If you 
 
 Once you've done that, go to `Keys and Access Tokens` tab and obtain the following credentials:
 
-Consumer Key
-Consumer Secret
-Access Token
-Access Token Secret
+- Consumer Key
+
+- Consumer Secret
+
+- Access Token
+
+- Access Token Secret
+
 
 Enter these credentials as promped.
 
@@ -39,5 +43,6 @@ Enter these credentials as promped.
 `tuitui elon`
 
 `tuitui trump`
+
 
 Enjoy!
