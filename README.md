@@ -16,7 +16,15 @@ Download latest executables for OSX and Linux from [Github releases](https://git
 
 So far I've only tested and confirmed it's working on darwin_amd64
 
-After downloading put the executable in your `PATH` and you can use with `tuitui`
+After downloading put the executable in your `PATH`
+
+`mv ~/Downloads/tuitui_darwin_amd64 /usr/local/bin/tuitui`
+
+And you can use with `tuitui`
+
+If you get permission denied error when trying to execute this, do a chmod 777 on the file
+
+`chmod 777 /usr/local/bin/tuitui`
 
 ### Twitter App
 
